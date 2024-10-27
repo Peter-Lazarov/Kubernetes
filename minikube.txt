@@ -1,0 +1,61 @@
+https://youtu.be/X48VuDVv0do
+
+sudo pacman -S minikube
+minikube start
+minikube status
+
+//docker must running
+
+Commands
+---------------------
+minikube kubectl -- get pods -A
+
+minikube status
+
+minikube kubectl -- get services
+
+minikube kubectl create -- --help
+
+minikube kubectl -- create deployment nginx-deploy --image=nginx
+minikube kubectl -- get pod
+minikube kubectl -- get replicaset
+minikube kubectl -- edit deployment nginx-deploy
+
+minikube kubectl -- create deployment mongo-deploy --image=mongo
+minikube kubectl -- describe pod mongo-deploy-7dfd599687-8lb6f
+minikube kubectl -- logs mongo-deploy-7dfd599687-8lb6f
+
+minikube kubectl -- exec -it mongo-deploy-7dfd599687-8lb6f -- bin/bash      //interactive terminal within the pod
+
+//Delete the pod
+minikube kubectl -- get deployment
+minikube kubectl -- get pod
+minikube kubectl -- delete deployment mongo-deploy
+
+//
+minikube kubectl -- apply -f config.yaml
+minikube kubectl -- delete -f config.yaml
+
+https://youtu.be/X48VuDVv0do?t=4699
+//Demo project
+//encode user and password in base 64 in konsole
+echo -n 'username' | base64
+
+minikube kubectl -- apply -f mongodb-secret.yaml
+minikube kubectl -- get secret
+minikube kubectl -- apply -f mongodb.yaml
+minikube kubectl -- get all
+minikube kubectl -- get service
+
+minikube kubectl -- describe service mongodb-service
+minikube kubectl -- get pod -o wide
+minikube kubectl -- get all | grep mongodb
+
+minikube kubectl -- apply -f mongo-express-configmap.yaml
+minikube kubectl -- apply -f mongo-express.yaml
+
+
+sudo pacman -S openssh
+minikube service mongo-express-service
+
+
